@@ -1,0 +1,731 @@
+<!DACTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creat Yar Own Adventur</title>
+</head>
+<body>
+    <script>
+        document.write("<h1 style='color:purple'>Adventure Game! v1.3 Demo</h1>")
+        //Just Monika
+        var player = {
+            name:"",
+            pokemon:false,
+        }
+        var party1 = {
+            name:"",
+            species:"",
+            move1:"",
+            move2:"",
+            move3:"",
+            move4:"",
+        }
+        var party2 = {
+            name:"",
+            species:"",
+            move1:"",
+            move2:"",
+            move3:"",
+            move4:"",
+        }
+        var party3 = {
+            name:"",
+            species:"",
+            move1:"",
+            move2:"",
+            move3:"",
+            move4:"",
+        }
+        var party4 = {
+            name:"",
+            species:"",
+            move1:"",
+            move2:"",
+            move3:"",
+            move4:"",
+        }
+        var party5 = {
+            name:"",
+            species:"",
+            move1:"",
+            move2:"",
+            move3:"",
+            move4:"",
+        }
+        var party6 = {
+            name:"",
+            species:"",
+            move1:"",
+            move2:"",
+            move3:"",
+            move4:"",
+        }
+        
+        function Abort() {
+            throw new Error('Game Over.');
+        }
+        
+        function NoPokemon() {
+            alert("You enter the battle, only to find that you have no Pokémon to protect you. The enemy Pokémon attacks you, and unfortunately, you kinda, well, you know...");
+            alert("..... die.");
+            alert("Game Over.");
+            Abort();
+        }
+        
+        Start();
+        function Start(){
+            var opening = alert(".... oh? That's right. There was supposed to be a new trainer, wasn't there? Well, let's get this over with. I'm Acacia. But everyone refers to me as the Pokemon Professor.");
+            alert("This world is widely inhabited by creatures known as Pokémon. We humans live alongside Pokémon. Some people are friends with Pokémon, and others see them as tools. I study Pokémon, to potentially harness energy the same way Pokémon do.");
+            alert("But that's not important right now. Let's start with you.");
+            function Gender(){
+                var playerGender = prompt("Are you a boy? Or are you a girl?").toLowerCase();
+                if(playerGender == "boy" || playerGender == "male"){
+                }else if (playerGender == "girl" || playerGender == "female"){
+                }else if (playerGender == "helicopter" || playerGender == "attack helicopter" || playerGender == "apache attack helicopter"){
+                    alert("Come on, no helicopter has the dextersity to play a computer game. Try again."); Gender();
+                }else{
+                    alert("I don't think that's a gender (yes, there are only two genders). Try again."); Gender();
+                }
+            }
+            Gender();
+            function PlayerName(){
+               player.name = prompt("Uh huh, and what's your name?");
+               if(player.name == "NAPPY" || player.name == "Shady"){
+               alert("Oh, it's you? Well, I don't know why you're playing this, but have at it! enjoy yourself!");
+                alert("Before you go, just remember that only you can prevent lost save data, but there aren't save states for this game.");
+               }else{
+                    var playername = confirm(player.name+"? Did I get that right?");
+                    if(playername){
+                        alert("Alright, good to meet you, " + player.name + ".");
+                    }else{
+                        PlayerName();
+                    }
+                }
+            }
+            PlayerName();
+            var beginAdv = confirm(player.name+", are you ready to set off on this journey?");
+                if(beginAdv){
+                    alert("Alright, let’s begin then! I'm supposed to do this thing where I shrink down your sprite to make an overworld sprite, but this is a text based game, so I can't do that, so we're just going to have to skip that part.");
+                    alert("You walk outside of your house. You live in Acanthus Village, a small town with only a couple houses.");
+                    Acanthus();
+                }else{
+                    alert("What? Then stop wasting my time!");
+                }
+        }
+        
+        var notfirstleave = false;
+        function Acanthus(){
+            var acanthus = prompt("There is a fallen tree, not too far to the west, and a path leading to Route 330 to the east. Behind you is your house.").toLowerCase();
+            if(acanthus == "tree" || acanthus == "west"){
+                function AcanthusTree(){
+                    var acanthustree = prompt("You walk over to the tree. The tree appears to have fallen on someone's house. There is a man, staring at the rubble.").toLowerCase();
+                    if(acanthustree == "man" || acanthustree == "talk"){
+                        alert("'This tree fell on my house. Luckily, I don't think anyone was inside it, but I can't find my Kricketot....' says the man, obviously holding back tears. 'He was my only friend...' the man trails off."); AcanthusTree();
+                    }else if(acanthustree == "examine"){
+                        alert("The man looks devastated, almost as much as the house. The tree is massive, at least three times your height when it's on its side, and it blocks the entire road. This will obviously take time to clean up. You hear something come from behind the tree. It sounds like... a xylophone?"); AcanthusTree();
+                    }else if(acanthustree == "back" || acanthustree == "leave"){
+                        Acanthus();
+                    }else{
+                        alert("You can't do that. Try again."); AcanthusTree();
+                    }
+                }
+                AcanthusTree();
+            }else if(acanthus == "behind" || acanthus == "house"){
+            var yourhouse = alert("You walk back inside. Doing stuff is hard, you know? You walk through the door.");
+            
+            YourHouse();
+            function YourHouse(){
+                var yourhouse = prompt("The staircase to the basement and to the loft are in front of you, the living room is to the right, and the kitchen is to the left.").toLowerCase();
+                if(yourhouse == "basement"){
+                    alert("You walk down the stairs and enter the basement.");
+                    YourHouse_Basement();
+                    function YourHouse_Basement(){
+                        var youhrouse_basement = prompt("The only rooms in the basement are your room and a your bathroom.").toLowerCase();
+                        if(yourhouse_basement == "room" || yourhouse_basement == "my room" || yourhouse_basement == "your room"){
+                            var yourhouse_basement_room = confirm("You walk into your room. Your attention immediately turns to your bed. Your lovely bed. You remember this morning. This morning was beautiful. It was beautiful because you were asleep. You could sleep more if you wanted to. You do have stuff to do, but it could wait until tomorrow, right? Do you want to sleep?");
+                            if(yourhouse_basement_room){
+                                alert("Of course you go to sleep! Why wouldn't you?");
+                                alert("You wake up in the morning, and drowsily walk back upstairs."); YourHouse();
+                            }else{
+                                alert("You decide not to sleep. You have self control, right?");
+                                alert("....");
+                                alert("You walk back upstairs, just to be safe."); YourHouse();
+                            }
+                        }else if(yourhouse_basement == "bathroom" || yourhouse_basement == "restroom"){
+                            alert("You look around, but nothing sticks out. You have already brushed your teeth, your hands are clean, and you don't need a shower. Also, if you stay here for to long then you’ll have to clean somethnig, so you leave."); YourHouse_Basement();
+                        }else{
+                            alert("You can't do that. Try again."); YourHouse_Basement();
+                        }
+                    }
+                }else if(yourhouse == "loft" || yourhouse == "upstairs"){
+                    var yourhouse_loft = confirm("You go up the stairs to the loft. This is your mother's room. It's fairly clean. Do you want to keep it that way?");
+                        if(yourhouse_loft){
+                            alert("Good choice. Your mom would kill you if you messed up her room for no reason. You go back downstairs."); YourHouse();
+                        }else{
+                            alert("You're wrong, actually. You don't want to mess up her room. Your mom would kill you. You go back downstairs instead."); YourHouse();
+                        }
+                }else if(yourhouse == "kitchen" || yourhouse == "left"){
+                    function YourHouse_Kitchen(){
+                        var yourhouse_kitchen = prompt("You walk into the kitchen. It's just a normal kitchen. There's nothing of interest here. You see your mom doing the dishes.");
+                        if(yourhouse_kitchen == "mom"){
+                            alert("You talk to your mom.");
+                            alert("'Oh, hi "+player.name+".");
+                            alert("Weren't you going to get a Pokemon from the professor? You should do that soon.' She sends you out the front door."); Acanthus();
+                        }else if(yourhouse_kitchen == "leave"){
+                            YourHouse();
+                        }else if(yourhouse_kitchen == "examine"){
+                            alert("You look around the kitchen. There are many cabinets. Most of them have plates and stuff. Some don't. Some have food. You have eaten some of that food. You weren't supposed to eat it then. You're not supposed to eat it now. Maybe if your mom wasn't here you would eat anyways. But she's here. So you won't."); YourHouse_Kitchen();
+                        }else{
+                            alert("You can't do that. Try again."); YourHouse_Kitchen();
+                        }
+                    }
+                    YourHouse_Kitchen();
+                }else if(yourhouse == "living room" || yourhouse == "livingroom" || yourhouse == "right"){
+                    function YourHouse_LivingRoom(){
+                        var yourhouse_livingroom = prompt("You face the living room. There's the couch, facing the TV. Next to it is a table with your Gameboy on it.").toLowerCase();
+                        if(yourhouse_livingroom == "couch" || yourhouse_livingroom == "tv"){
+                            alert("You sit on the couch, and casually start watching TV. You briefly think that maybe your life had more of a purpose. That you could achieve something great if you were to just leave the house. That maybe you could resolve conflicts, and unite everyone in the region. If only you would stop watching Best of Sinnoh TV.");
+                            alert("Your attention turns back to the TV.")
+                            alert("I was just your average girl until I was struck by a Thunder Shock. It was love at first sight, baby! And my target, a Gym Leader! I didn’t have any Pokémon then, but not a problem for a resourceful gal! The answer was simple—and we all know simple is best! I just had to become a Trainer. That’s all it took for me!");
+                            alert("“The Diary of a Poké Romantic” will soon make its debut! The pilot episode: “Love at First Sight: The Rules of the Move Attract!” By the way, how did everyone get their first Pokémon anyway?");
+                            alert("After some fits and starts, a childhood friend gave me my first Pokémon! …It was a Kricketot. Except…I don’t like the legs of bugs. I bet he gave me this because I picked on him when he was little… But though the road has been long and hard, I’m finally at the starting line!");
+                            alert("Next week: “The Diary of a Poké Romantic,” episode two! “The Maiden in Love and the Kricketot: The Magic of Romance Never Ends!” Oh, this Kricketot is a female. Maybe we can be friends.");
+                            alert("Our journey was long, and it was hard. But no one wants to hear that! So, I finally found my Gym Leader. But he has an incurable disease! He begged me, out of the blue, with his last wish. He asked for my Pokémon! But my Kricketune’s my partner!");
+                            alert("Next week: “The Diary of a Poké Romantic,” episode seven! “My Trail of Footprints Shortened the Distance Between Us!” Everytime I see Kricketune’s face, I am reminded of our time together…");
+                            alert("My beloved Gym Leader, whom I fought so hard to meet, was a fraud! How dare he con this pure maiden! How dare he toy with my emotions! But whose fault was it? Was it mine for being taken in? All I know is that my tears overflow, and despair is my world…");
+                            alert("Next week: “The Diary of a Poké Romantic,” episode eight! “Kricketune and I! Our Bond Is True!” That Gym Leader’s eating a Giga Impact for playing me for a fool!");
+                            alert("Having defeated the fake Gym Leader, Kricketune and I stood in a daze. We were spent. Drained by a romance that ended in a nightmare. It was then that my childhood friend, the former Bug Catcher, arrived. He did more than that. He confessed his love to me! “I wanted to become an Elite Four member, so I quit as a Gym Leader. But then that faker appeared. You took care of him, though!” Wait, ex-Bug Catcher! What? What are you saying?!");
+                            alert("Next week: “The Diary of a Poké Romantic,” final episode! “Do it, Kricketune! Silver Wind over Sinnoh Skies!” You were laughing at me for falling for that fraud, weren’t you?");
+                            alert("You look up from the TV. As it turns out, about 10 days have passed. In a panic, you run out the front door."); Acanthus();
+                        }else if(yourhouse_livingroom = "gameboy"){
+                            var gameboy = confirm("You pull out your Gameboy. In the Gameboy is the new Pokemon Game, Pokemon Spoon. Most people prefered Pokemon Fork, because the legendary looks cooler, but you're no fool. You know that having a 4x weakness to ground and fighting is a death sentence. You haven't actually played it yet though. Might as well start now, right?");
+                            if(gameboy){
+                                alert("The GameBoy starts up. Just the sound of it relaxes you. It calms you. It makes you forget about the socio-economic problems that exist in today's society.");
+                                alert("The title screen appears, and you begin to lose yourself in the game. Naturally, it's a Pokémon game, so there's a small intro first."); Start();
+                            }else{
+                                alert("You're right. You have stuff to do right now."); YourHouse_LivingRoom();
+                            }
+                        }else if(yourhouse_livingroom = "examine"){
+                            alert("You look around the living room. It's relatively small, but there's only two people that live here anyways, so it's not a big deal. If your dad was here, maybe that would be different....");
+                            alert("You find that your eyes are tearing up. You snap out of it, and focus at the task at hand."); YourHouse_LivingRoom();
+                        }else{
+                            alert("You can't do that. Try something else."); YourHouse_LivingRoom();
+                        }
+                    }
+                    YourHouse_LivingRoom();
+                }else{
+                    alert("You can't do that. Try something else."); YourHouse();
+                }
+            }
+            }else if(acanthus == "route" || acanthus == "east" || acanthus == "route 330" || acanthus == "330" || acanthus == "path"){
+            if(notfirstleave){
+                Route330();
+            }else{
+                alert("You begin to leave town, but as you get to the village border, a small, pink, balloon-like animal flies by and hits you in the face. Upon further examination, it's an Igglybuff.");
+                alert("There's only one trainer around these parts that owns an Igglybuff. Actually, there's only one trainer around these parts.");
+                alert("'Oh there she is!' That trainer's name is Liz. 'Sorry about Igglybuff. It just gets so windy here, and Igglybuff is, well, the balloon Pokémon.'");
+                alert("'She's not very heavy, so this happens a lot...' she trails off.")
+                var leavingacanthus = confirm("'Hey, wait, aren't you getting a Pokémon?'");
+                if(leavingacanthus){
+                    var tryingtoleaveacanthus = confirm("'Yeah! Once you get your Pokémon, we'll have to battle, okay?'");
+                    if(tryingtoleaveacanthus){
+                        alert("'Yeah!'");
+                        var stilltryingtoleaveacanthus = confirm("'So do you have a Pokémon in mind yet? Or at least a type?'");
+                        if(stilltryingtoleaveacanthus){
+                            alert("'Cool! Don't tell me though! I want it to be a surprise.'");
+                        }else{
+                            var shejustwontstoptalking = confirm("'What? Well, do you want to know about the types and how they compare to the first gym?'");
+                            if(shejustwontstoptalking){
+                                alert("'Sweet! Well, the first gym leader uses ground types, so choosing a fire type will put you at a small disadvantage, but I've heard that he wanted to be a fire type gym leader, so bringing a grass type could be a bad thing. He's kinda salty about it.'");
+                                alert("'Sorry! I just keep talking, don't I? I'll let you get on your way then.'");
+                                alert("'Take care!'");
+                            }
+                        }
+                    }else{
+                        alert("'What? Well, once you have a Pokémon, all we have to do is make eye contact and then you CAN'T say no!'");
+                    }
+                }else{
+                    alert("'"+player.name+", stop joking, you've got to be getting a Pokémon, right? Didn't the professor contact you or something?'");
+                    var depression = confirm("(You should probably tell her. She hasn't been doing to well recently, and that might cheer her up a bit.)")
+                    if(depression){
+                        alert("'Haha, alright! You'll have to come show me later so that we can battle!' She leaves, and looks a bit happier now.");
+                    }else{
+                        alert("'... Your mom already told me that you were getting a Pokémon. I just thought that you would want to share that with me too...' She looks sad now.")
+                        alert("There aren't many kids in town. You're the only one that is even relatively close to her age. She's about three years older than you, but you two were still friends.");
+                        alert("You have known her for quite awhile. You know that she suffered from depression for a while, and you helped her get through that, and because of that, you two were very close. She didn't care about that many things, but the two things she really did care about were you, and Pokémon.");
+                        alert("You have just spat on the two things she cared the most about. What you have just done starts to sink in.");
+                        var apologies = confirm("You need to apologize.");
+                        if(apologies){
+                            alert("You apologize. She still seems sad. She'll forgive you adventually though. She accepts your apology, but her face is still riddled with depression. Your friendship must have meant a lot to her. And you just toyed with it.");
+                            alert("You are a heartless person. Liz has already walked away.");
+                            alert("What have you done.");
+                            alert("I guess you can continue with your journey. But now you have to live with what you have done to your best friend forever.");
+                        }else{
+                            alert("You apologize anyways. You might be heartless, but you're not cruel. You don't get that choice.");
+                            alert("Liz numbly accepts your apology and walks away.")
+                            alert("What have you done.");
+                            alert("I guess you can continue with your journey. But now you have to live with what you have done to your best friend forever.");
+                        }
+                    }
+                }
+                alert("You continue on your way, and eventually find yourself in Route 330.");
+                var notfirstleave = true;
+                Route330();
+            }
+            }else if(acanthus == "examine"){
+                alert("You look around. The town is made of houses, with roofs slanted to the mouth of the canyon, which is to the east. The houses are made of a black material, which is very smooth. The houses have five walls, once again pointing to the mouth of the canyon. There are only five houses, so you'd think that you would know everyone in the village."); Acanthus();
+            }else{
+                alert("You can't do that. Try something else."); Acanthus();
+            }
+        }
+        
+        function Route330(){
+            var route330 = prompt("There is a small path to the north leading towards the Porodit City gate. On the sides of the road is tall grass.").toLowerCase();
+            if(route330 == "argylia town" || route330 == "argyliatown" || route330 == "argylia" || route330 == "east"){
+                alert("You skip the grass, and head straight to town.");
+                alert("You walk into Argylia Town."); Argylia();
+            }else if(route330 == "porodit city" || route330 == "poroditcity" || route330 == "porodit" || route330 == "north"){
+                alert("You head up to the Porodit City gate."); Poroditt();
+            }else if(route330 == "acanthus village" || route330 == "acanthusvillage" || route330 == "acanthus" || route330 == "west"){
+                alert("You head back to Acanthus Village."); Acanthus();
+            }else if(route330 == "tall grass" || route330 == "tallgrass" || route330 == "grass"){
+                function Route330Encounters(){
+                    var chances = Math.floor((Math.random() * 160) + 1);
+                    //Rattata 40%
+                    if(chances <= 40){
+                        alert("... and out comes a Rattata!");
+                        Battle();
+                        Route330();
+                    //Kricketot 30%
+                    }else if(41 < chances <= 70){
+                        alert("... and out comes a Kricketot!");
+                        Battle();
+                        Route330();
+                    //Ekans 20%
+                    }else if(71 < chances <= 90){
+                        alert("... and out comes a Ekans!");
+                        Battle();
+                        Route330();
+                    //Doduo 10%
+                    }else if(91 < chances <= 100){
+                        alert("... and out comes a Doduo!");
+                        Battle();
+                        Route330();
+                    }else{
+                        alert("... but you find nothing."); Route330();
+                    }
+                }
+                if(player.pokemon == false){
+                    alert("You walk towards the grass, but as you get close, your mom's words echo in your mind.");
+                    alert("'Remember " + player.name + ", don't go into the tall grass if you don't have a Pokémon to defend you.");
+                    var grass = confirm("Do you still want to walk through the grass?");
+                    if(grass){
+                        alert("You can go through the grass, right? Pokémon are friendly! They won't attack you for no reason....");
+                        var tallgrass = confirm("Do you walk through the grass anyways?");
+                        if(tallgrass){
+                            alert("You walk through the grass...");
+                            Route330Encounters();
+                        }else{
+                            alert("You decide to play it safe and just stick to the path."); Route330();
+                        }
+                    }else{
+                        alert("You decide to play it safe and just stick to the path."); Route330();
+                    }
+                }else{
+                    Route330Encounters();
+                }
+            }else if(route330 == "examine"){
+                alert("You look around. Route 330 is a very clear-cut path going from Acanthus Village to the west to Argylia Town to the east. On the sides of the road is brown grass. It looks rather dry."); Route330();
+            }else{
+                alert("You can't do that. Try something else."); Route330();
+            }
+        }
+        
+        function Argylia(){
+            if(player.pokemon == false){
+                var argylia = prompt("To the west is Hotel Argylia. To the east are various houses, and to the south is the Pokemon Center and the PokeMart. You remember that the professor said she would meet you in the Hotel.").toLowerCase();
+            }else{
+                var argylia = prompt("To the west is Hotel Argylia. To the east are various houses, and to the south is the Pokemon Center and the PokeMart.").toLowerCase();
+            }
+            if(argylia == "west" || argylia == "argylia" || argylia == "hotel" || argylia == "argylia hotel"){
+                alert("You walk into the Hotel.");
+                ArgyliaHotel();
+                function ArgyliaHotel(){
+                    if(player.pokemon == false){
+                        var argyliaHotel = prompt("Upon looking around, you see a man with messy brown hair dressed in a lab coat sitting in the couch, glancing around nervously.").toLowerCase();
+                    }else{
+                        alert("You walk into the Hotel.");
+                        var argyliaHotel = prompt("The lady at the front desk greets you with a smile.").toLowerCase();
+                    }
+                    if(argyliaHotel == "man" || argyliaHotel == "scientist" || argyliaHotel == "assistant"){
+                        if(player.pokemon == false){
+                            alert("You walk up to the man. He glances up at you, and quickly stands up.");
+                            var scientist = confirm("'Are you "+player.name+"?'");
+                            if(scientst){
+                                alert("'Oh good! My name is Shrub. I'm Prof. Acacia's assistant.'");
+                                alert("'Huh? Where is she? Well, she had a lot of word to do, so she sent me instead.'");
+                                alert("'Anyways, let's get you a Pokemon!'");
+                                alert("He pulls out a brief case, in which lies three Pokeballs.");
+                                alert("'The first one is Rowlet. He's a grass type owl Pokemon.'");
+                                alert("'The second one is Chimchar, the fire type chimp Pokemon.'");
+                                alert("'And lastly, the third one is a Totodile, the big jaw Pokemon.");
+                                function ChooseMyStarter(){
+                                    var choosemystarter = prompt("So? which is it? Do you want Rowlet, Chimchar, or Totodile?").toLowerCase();
+                                    if(choosemystarter == "rowlet" || choosemystarter == "first" || choosemystarter == "first one" || choosemystarter == "one"){
+                                        var rowlet = confirm("Are you sure you want Rowlet?");
+                                        if(rowlet){
+                                            alert("You obtained the Rowlet!");
+                                            var party1.species:"Rowlet",
+                                            var party1.move1:"Tackle",
+                                            var party1.move2:"Growl",
+                                            var party1.move3:"Leafage",
+                                            var nicknamerowlet = confirm("Do you want to give your Rowlet a nickname?");
+                                            if(nicknamerowlet){
+                                                var party1.name = prompt("What will you nickname your Rowlet?");
+                                                Assistant();
+                                                
+                                            }else{
+                                                Assistant();
+                                            }
+                                        }else{
+                                            ChooseMyStarter();
+                                        }
+                                    }else if(choosemystarter == "chimchar" || choosemystarter == "second" || choosemystarter == "second one" || choosemystarter == "two"){
+                                        var chimchar = confirm("Are you sure you want Chimchar?");
+                                        if(chimchar){
+                                            alert("You obtained the Chimchar!");
+                                            var party1.species:"Chimchar",
+                                            var party1.move1:"Scatch",
+                                            var party1.move2:"Leer",
+                                            var party1.move3:"Ember",
+                                            var nicknamechimchar = confirm("Do you want to give your Chimchar a nickname?");
+                                            if(nicknamechimchar){
+                                                var party1.name = prompt("What wil you nickname your Chimchar?");
+                                                Assistant();
+                                            }else{
+                                                Assistant();
+                                            }
+                                        }else{
+                                            ChooseMyStarter();
+                                        }
+                                    }else if(choosemystarter == "totodile" || choosemystarter == "third" || choosemystarter == "third one" || choosemystarter == "three"){
+                                        var totodile = confirm("Are you sure you want Totodile?");
+                                        if(totodile){
+                                            alert("You obtained the Totodile!");
+                                            var party1.species:"Totodile",
+                                            var party1.move1:"Scratch",
+                                            var party1.move2:"Leer",
+                                            var party1.move3:"Water Gun",
+                                            var nicknametotodile = confirm("Do you want to give your Totodile a nickname?");
+                                            if(nicknametotodile){
+                                                var party1.name = prompt("What will you nickname your Totodile?");
+                                                Assistant();
+                                            }else{
+                                                Assistant();
+                                            }
+                                        }else{
+                                            ChooseMyStarter();
+                                        }
+                                    }
+                                }
+                            }
+                        }else{
+                            alert("You can't do that. Try something else."); ArgyliaHotel();
+                        }
+                    }else if(argyliaHotel == "front desk" || argyliaHotel == "lady"){
+                        if(player.pokemon == false){
+                            alert("The woman smiles as she tells you that the man in the lab coat was looking for you."); ArgyliaHotel();
+                        }
+                    }else if(argyliaHotel == "examine"){
+                        alert("You look around the hotel. It doesn't look incredibly fancy, but it's in good condition. The lobby is fairly big, consisting of a couple tables, four couches, and three T.V.s on the wall.")
+                    }else{
+                        alert("You can't do that. Try somethnig else."); ArgyliaHotel();
+                    }
+                }
+            }else if(argylia == "pokemon center" || argylia == "center"){
+                alert("Cool.");
+            }else if(argylia == "pokemart" || argylia == "mart"){
+                alert("Cool.");
+            }else if(argylia == "houses" || argylia == "house"){
+                alert("You walk up to the door, and knock.");
+                alert("*knock knock knock");
+                alert("...");
+                var argyliahouses = confirm("But there's no answer. Try again?");
+                if(argyliahouses){
+                    alert("You try again...");
+                    var argyliahouse = confirm("But still no answer. Try the door?");
+                    if(argyliahouse){
+                        alert("You try to turn the knob, but the door is locked.");
+                        alert("Imagine that. Someone locked their door.");
+                        alert("However, you do notice an open window....");
+                        var breakin = confirm("Enter through the window?");
+                        if(breakin){
+                            alert("That's right! This is an RPG style text based game! You should be able to go in every house!");
+                            alert("You enter the window.");
+                            alert("'Hey! What the f*** are you doing in here!?'");
+                            alert("So apparently there was someone home, they just didn't want any visitors.");
+                            var aprehention = prompt("You could tell him about this being an RPG, or you could make some dumb excuse.").toLowerCase();
+                            if(aprehention == "rpg" || aprehention == "game" || argyliaaprehention == "just monika"){
+                                alert("Your voice is suddenly filled with confidence as you begin explaining that this world is not as it seems.");
+                                alert("That this is all a game.");
+                                alert("That none of this really matters.");
+                                alert("That the deaths of his loved ones didn't actually happen.");
+                                alert("That it was just coded this way.");
+                                var justmonika = prompt("It was coded this way so you could spend time with her.").toLowerCase();
+                                if(justmonika == "just monika"){
+                                    JustMonika();
+                                    function JustMonika(){
+                                        alert("Just Monika"); JustMonika();
+                                    }
+                                }else{
+                                    alert("The man stares at you. You stare back at him. He obviously didn't understand you. You glance at the door and begin to apologize, and suddenly something hits your head, and everything goes dark.");
+                                    Caught();
+                                    function Caught(){
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("....");
+                                        alert("Are you dead?");
+                                        alert("Probably not.");
+                                        alert("If you were dead, it would have said game over.");
+                                        alert("Or maybe Robert is just teasing you and you actually are dead.");
+                                        var death = confirm("It sounds like something he would do, doesn't it?");
+                                        if(death){
+                                            alert("Yeah, probably. He likes wasting other people's time.");
+                                            alert("Especially when he is still technically being productive.");
+                                            alert("....");
+                                            alert("But no, you're not dead.");
+                                            alert("....");
+                                            alert("Now you are!");
+                                            alert("So as it turns out, the guy was drunk, and after he hit you in the head with a baseball bat, he wandered around the house and forgot about you completely.");
+                                            alert("He left you there bleeding, and eventually you bled out and died."); Abort();
+                                        }else{
+                                            alert("Really? You don't think he would do that? He's already given you 16 pointless dialogue boxes.");
+                                            alert("This won't end well either way. Heck, this used to be a Pokemon game, and now you may or may not be dead in some drunk's living room.");
+                                            alert("Oh, yeah, I forgot to mention, this guy is drunk.");
+                                            alert("And yeah, Robert is just wasting you're time.");
+                                            alert("....");
+                                            alert("Now you're dead though.");
+                                            alert("So yeah, the guy was drunk, and after he hit you in the head with a pot, he wandered around the house and forgot about you completely.");
+                                            alert("He left you there bleeding, and eventually you bled out and died."); Abort();
+                                        }
+                                    }
+                                }
+                            }else if(aprehention == "dumb excuse" || aprehention == "excuse"){
+                                alert("You start reciting a tale of an epic adventure, where you fight a Haxorus with your bear hands.");
+                                alert("Unfortunately, you misspoke and now none of what you said makes any sense.");
+                                alert("Not that it made much sense in the first place.");
+                                alert("You try to explain that you meant to say 'bare' and not 'bear'. It would make no sense to fight with bear hands, because you are a human. You have human hands.");
+                                alert("He stares at you blankly. You realize that while you can see the text boxes, he can't. To him, you just tried to explain the difference between bare and bare.");
+                                alert("Good job.");
+                                alert("The man just stares at you. You stare back at him. He obviously didn't understand you. You glance at the door and begin to apologize, and suddenly something hits your head, and everything goes dark."); Caught();
+                            }else{
+                                alert("You begin to explain yourself to the man, but your words get caught in you throat. You make a couple of small squeaks, but they were off key and kinda sounded like All Star.");
+                                alert("You know, by Smashmouth.");
+                                alert("The man was not impressed, and something flies at your head."); Caught();
+                            }
+                        }else{
+                            alert("You decide not to break in. You're not a criminal. Well, probably not. We'll see."); Argylia();
+                        }
+                    }else{
+                    alert("You turn away from the house. You have better things to do anyways."); Argylia();
+                    }
+                }else{
+                    alert("You turn away from the house. You have better things to do anyways."); Argylia();
+                }
+            }else{
+                alert("You can't do that. Try again."); Argylia();
+            }
+        }
+        
+        var anger = false;
+        function Poroditt(){
+            if(player.pokemon == false){
+                alert("Upon entering, you discover that there is a riot of people in the gate, preventing your exit.");
+                alert("One woman is in the corner, her eyes begining to tear up.");
+                var poroditt = confirm("Do you try to comfort her?");
+                    if(poroditt){
+                        alert("You walk up to the woman. Before you can say anything, she looks up at you, and her eyes are suddenly full of rage.");
+                        alert("'IT'S YOU!!!!'");
+                        alert("You don't know the woman, or anyone else here, but they all turn at you, and slowly start approaching you.");
+                        alert("'It's because of you that we have to be here! If you had just gone straight to Argylia town, then we wouldn't of had to be programmed into the game like this!'");
+                        alert("The rest of the mob agrees, and then charges at you.");
+                        var run = prompt("You have to run! Where do you run to? Argylia Town or Acanthus Village?").toLowerCase();
+                        if(run == "argylia" || run == "argylia town"){
+                            alert("You run into Argylia Town. The mob follows. In desparation, you run into the Hotel.");
+                            alert("And you wait,");
+                            alert("and wait,");
+                            alert("and wait,");
+                            alert("and wait,");
+                            alert("and wait,");
+                            alert("...");
+                            alert("but nothing happens.");
+                            alert("You must have lost them somehow.");
+                            alert("Which is kind of weird if you think about it. You ran into the first building on your left, and they couldn't follow you.");
+                            alert("Well, whatever. You're safe now at least.");
+                            var anger = true;
+                            Argylia();
+                        }else if(run == "acanthus" || run == "acanthus village"){
+                            alert("You run into Acanthus, and in panic, you run into the first house you see.");
+                            alert("And you wait,");
+                            alert("and wait,");
+                            alert("and wait,");
+                            alert("and wait,");
+                            alert("and wait,");
+                            alert("...");
+                            alert("but nothing happens.");
+                            alert("Which is kind of weird if you think about it. You ran into the first building on your left, and they couldn't follow you.");
+                            alert("Well, whatever. You're safe now at least.");
+                            alert("You turn around, and see a man, standing in the corner, looking confused.");
+                            alert("You apologize, and leave the house."); Acanthus();
+                        }else{
+                            alert("In your panic, you stand there, unsure of which town to run towards.");
+                            alert("The mob catches up to you.");
+                            alert("'WAIT!!!' You suddenly scream.");
+                            alert("The mob stops, but unfortunately, you have no idea what to say.");
+                            Mob();
+                        }
+                    }else{
+                        alert("Yeah, I suppose it's not really your problem, is it?");
+                        alert("You turn around and leave"); Route330();
+                    }
+                }else{
+                    alert("You walk into the gate, but there are construction workers standing at the exit.");
+                    alert("WIP"); Abort();
+                }
+            }
+        
+        function Mob(){
+            var mob = prompt("You could try to explain how RPGs work, or you could just make some dumb excuse.").toLowerCase();
+            if(mob == "rpg"){
+                if(aprehention == "rpg" || aprehention == "game" || argyliaaprehention == "just monika"){
+                    alert("Your voice is suddenly filled with confidence as you begin explaining to the mob that this world is not as it seems.");
+                    alert("That this is all a game.");
+                    alert("That in this game, you can explore things at your own pace.");
+                    alert("That nothing in this reality really matters.");
+                    alert("That the deaths of their loved ones didn't actually happen.");
+                    alert("That it was just coded this way.");
+                    var justmonika = prompt("It was coded this way so you could spend time with her.").toLowerCase();
+                    if(justmonika == "just monika"){
+                        JustMonika();
+                        function JustMonika(){
+                            alert("Just Monika"); JustMonika();
+                        }
+                    }else{
+                        alert("The mob stares at you. You stare back at them. They obviously didn't follow your logic. You begin to open your mouth, but the mob attacks, and everythnig goes dark.");
+                        Attacked();
+                        function Attacked(){
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("....");
+                            alert("Are you dead?");
+                            alert("Probably not.");
+                            alert("If you were dead, it would have said game over.");
+                            alert("Or maybe Robert is just teasing you and you actually are dead.");
+                            var death = confirm("It sounds like something he would do, doesn't it?");
+                            if(death){
+                                alert("Yeah, probably. He likes wasting other people's time.");
+                                alert("Especially when he is still technically being productive.");
+                                alert("....");
+                                alert("But yeah, you are dead."); Abort();
+                            }else{
+                                alert("Really? You don't think he would do that? He's already given you 16 pointless dialogue boxes.");
+                                alert("This won't end well either way. Heck, this used to be a Pokemon game, and now you may or may not be dead right now.");
+                                alert("Imagine that. A Pokemon game that you can actually die in.");
+                                alert("And yeah, Robert is just wasting you're time.");
+                                alert("....");
+                                alert("Well, you did die, actually.");
+                                alert("The mob killed you."); Abort();
+                            }
+                        }
+                    }
+                }else if(aprehention == "dumb excuse" || aprehention == "excuse"){
+                    alert("You start reciting a tale of an epic adventure, where you fight a Haxorus with your bear hands.");
+                    alert("Unfortunately, you misspoke and now none of what you said makes any sense.");
+                    alert("Not that it made much sense in the first place.");
+                    alert("You try to explain that you meant to say 'bare' and not 'bear'. It would make no sense to fight with bear hands, because you are a human. You have human hands.");
+                    alert("The entirety of the mob stares at you blankly. You realize that while you can see the text boxes, he can't. To them, you just tried to explain the difference between bare and bare.");
+                    alert("Good job.");
+                    alert("The mob stares at you. You stare back at them. They obviously didn't follow your logic. You begin to open your mouth, but the mob attacks, and everythnig goes dark."); Attacked();
+                }else{
+                    alert("You begin to explain yourself to the mob, but your words get caught in you throat. You make a couple of small squeaks, but they were off key and kinda sounded like All Star");
+                    alert("You know, by Smashmouth.");
+                    alert("No one was impressed, and something flies at your head as they begin to swarm you."); Attacked();
+                }
+            }
+        }
+        
+        function Battle(){
+            if(player.pokemon == false){
+                NoPokemon();
+            }else{
+                alert("This function is currently in progress. Hopefully it will work one day. At this rate though, it probably won't.");
+                
+                /*
+                
+                
+                shrug emoji
+                
+                
+                */
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        function Catch(){
+            /*
+            so i need it to get the you have encountered, generate it, and put it into a variable called enemy pokemon
+            then i need it to take party1 (which is a variable that is already generated) and put it into a variable called active pokemon
+            the two then can battle each other
+            the options will be displayed through a bunch of fricken jquery stuff that I don't know how to do right now because that would be FRICKEN CONVINIENT ANTD WE ALL KNOW THAT I CAN'T HAVE CONVINIENT ASPECTS TO MY LIFE BECAUSE THEN I MIGHT ACTUALLY ENJOY LIVING AND THAT IS OBVIOUSLY UNACCEPTABLE
+            
+            */
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
